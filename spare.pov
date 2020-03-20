@@ -23,16 +23,68 @@
 
 #declare x_closet = 28.5;
 #declare y_closet = 79.75;
-union {
-  box { // loudspeaker closet
+
+union { // garage desk
+  box {
+    <0,0,0>,<44.375,-.75,20>
+    translate <0,30.25,0>
+  }
+  box {
+    <0,0,0>,<1.75,30,1.75>
+    translate <1,0,0.25>
+  }
+  box {
+    <0,0,0>,<1.75,30,1.75>
+    translate <1,0,19.5-2*1.75+0.25>
+  }
+  box {
+    <0,0,0>,<1.75,-1.75,19.5-2*1.75>
+    translate <1,8,1.75+0.25>
+  }
+  box {
+    <0,0,0>,<1.75,-1.75,19.5-2*1.75>
+    translate <1,30.25,1.75+0.25>
+  }
+  box {
+    <0,0,0>,<1.75,30,1.75>
+    translate <30.25,0,0.25>
+  }
+  box {
+    <0,0,0>,<1.75,30,1.75>
+    translate <30.25,0,19.5-2*1.75+0.25>
+  }
+  box {
+    <0,0,0>,<1.75,30,1.75>
+    translate <44.375-1-1.75,0,0.25>
+  }
+  box {
+    <0,0,0>,<1.75,30,1.75>
+    translate <44.375-1-1.75,0,19.5-2*1.75+0.25>
+  }
+  texture{T_Wood3}
+  rotate <0,90,0>
+  translate <x_ew-20,0,-25.5-3>
+}
+
+union { // rack cabinet
+  box {
+    <0,0,0>,<25.5,65,21>
+    texture{T_Wood15}
+  }
+  rotate <0,90,0>
+  translate <x_ew-21-1,0,-1>
+}
+
+union { // loudspeaker closet
+  box {
     <0,0,1>,<14,25,11.5>
     texture{T_Wood10}
   }
-  box { // loudspeaker closet
+  box {
     <0,0,0>,<14,2,11.5>
     texture{T_Wood10}
   }
-  box { // loudspeaker closet
+  box {
     <0,2,0>,<14,25,1>
     texture{T_Wood4}
   }
@@ -41,9 +93,19 @@ union {
   translate <x_closet+7.25,ceiling-27.5,-17.25>
 }
 
-box { // loudspeaker window
-  <0,0,0>,<14,25,11.5>
-  texture{T_Wood10}
+union { // loudspeaker window
+  box {
+    <0,0,1>,<14,25,11.5>
+    texture{T_Wood10}
+  }
+  box {
+    <0,0,0>,<14,2,11.5>
+    texture{T_Wood10}
+  }
+  box {
+    <0,2,0>,<14,25,1>
+    texture{T_Wood4}
+  }
   rotate <-26,0,0>
   rotate <0,-45+180,0>
   translate <x_ew-8,ceiling-27.5,-y_ns+17>
@@ -118,11 +180,19 @@ light_source { <x_ew/2, ceiling-30, -y_ns/2> color  White }
 light_source { <x_ew/2, ceiling-30, -10*y_ns> color  .1*White }
 
 camera {
-   location  <x_ew/2, 55, -360.25>
-   //location  <3*x_ew/4, 55, -y_ns/3>
+#if(1)
+   location  <x_ew/4, 55, -300>
    angle 40 //direction <0.0, 0.0,  0.0>
-   look_at <x_ew/2,55,0>
-   //look_at <0,55,-y_ns/4>
+   look_at <x_ew/2,55,-y_ns/2>
+#end
+#if(0)
+   location  <x_ew/8, 55, -3*y_ns/4>
+   angle 40 //direction <0.0, 0.0,  0.0>
+   look_at <x_ew,55,-y_ns/2>
+#end
+   //location  <3*x_ew/4, 55, -y_ns/3>
+   //angle 40 //direction <0.0, 0.0,  0.0>
+   //look_at <x_ew,55,-y_ns/4>
    #if (0)
    focal_point <0,-1,0>
    aperture 2

@@ -1,0 +1,9 @@
+# rack
+width=21#in
+depth=25.5#in
+height=65#in
+
+# garage desk
+width=44+3/8#in
+depth=20#in
+height=30.25#in
